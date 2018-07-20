@@ -1,29 +1,92 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Hank Quinlan, Horrible Cop</title>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Hank Quinlan!</h1>
-				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-			</ul>
-		</footer>
-	</body>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Welcome to Dr. Dan's Antivirus</title>
+
+        <link rel="stylesheet" href="StyleSheet.css" type="text/css" />
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34187930-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageview','/index/firstScreen']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+       <div id="header">
+         <a href="index.html"><h1>Dr. Dan's Antivirus</h1></a>
+
+        <ul id="menu">
+	        <li class="active"><a href="downloads.html">Downloads</a></li>
+	        <li><a href="aboutus.html">About Us</a></li>
+	        <li><a href="contactus.html">Contact Us</a></li>
+	        <li><a href="whitepapers.html">Whitepapers</a></li>
+        </ul>
+       </div>
+    <div id="intro">
+        <h2>Inoculate your computer from viruses now. Get the best protection your money can buy!</h2>
+    </div>
+    <div id="main" class="box">
+
+        <div style="float: right; margin-top: 20px">
+            <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+            <fb:like></fb:like>
+        </div>
+
+        <div id="features">
+            <h3>Dr. Dan's Antivirus includes the following features:</h3>
+        </div>
+
+        <div id="firstScreen" class="wizard">
+            <h1>SEARCH</h1>
+            <p>using our sophisticated virus scanner</p>
+            <!--<p>Step 1 of 3 <a href="#secondScreen" onclick="showSecondScreen();_gaq.push(['_trackPageview','/index/secondScreen']);">Next--&gt;</a></p>-->
+            <p>Step 1 of 3 <a href="#secondScreen" onclick="showSecondScreen();_gaq.push(['_trackEvent','slideshow','clickNext']);">Next--&gt;</a></p>
+        </div>
+
+        <div id="secondScreen" class="wizard" style="display: none">
+            <h1>ANALYZE</h1>
+            <p>your system with our massive database of threats</p>
+            <!--<p>Step 2 of 3 <a href="#thirdScreen" onclick="showThirdScreen();_gaq.push(['_trackPageview','/index/thirdScreen']);">Next--&gt;</a></p>-->
+            <p>Step 2 of 3 <a href="#thirdScreen" onclick="showThirdScreen();_gaq.push(['_trackEvent','slideshow','clickNext']);">Next--&gt;</a></p>
+        </div>
+
+        <div id="thirdScreen" class="wizard" style="display: none">
+            <h1>ELIMINATE</h1>
+            <p>threats without the risk</p>
+            <p>Step 3 of 3</p>
+        </div>
+
+
+    </div>
+
+    <script>
+        function showSecondScreen() {
+            document.getElementById('firstScreen').style.display = 'none';
+            document.getElementById('secondScreen').style.display = 'inline';
+            document.getElementById('thirdScreen').style.display = 'none';
+        }
+
+        function showThirdScreen() {
+            document.getElementById('firstScreen').style.display = 'none';
+            document.getElementById('secondScreen').style.display = 'none';
+            document.getElementById('thirdScreen').style.display = 'inline';
+        }
+    </script>
+
+        <script>
+            FB.Event.subscribe('edge.create', function(targetUrl) {
+                _gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
+            });
+        </script>
+
+    </body>
 </html>
-4

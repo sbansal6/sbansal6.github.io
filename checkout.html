@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Welcome to Dr. Dan's Antivirus</title>
+
+        <link rel="stylesheet" href="StyleSheet.css" type="text/css" />
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-34187930-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <a href="index.html"><h1>Dr. Dan's Antivirus</h1></a>
+
+            <ul id="menu">
+	            <li class="active"><a href="downloads.html">Downloads</a></li>
+	            <li><a href="aboutus.html">About Us</a></li>
+	            <li><a href="contactus.html">Contact Us</a></li>
+	            <li><a href="whitepapers.html">Whitepapers</a></li>
+            </ul>
+       </div>
+        <div id="intro">
+            <h2>Get Dr. Dan's now and get ready to be amazed.</h2>
+        </div>
+        <div id="main" class="box">
+
+            <form name="orderform" method="post" onsubmit="trackTransaction();return false;">
+
+                <table id="mainTable">
+                    <tr>
+                    <td>
+                        <h3>How would you like to subscribe?</h3>
+
+                        <input type="radio" name="subscription" id="monthlySub" value="monthly">Monthly Subscription - $9.99 / mo<br> 
+                        <input type="radio" name="subscription" id="yearlySub"  value="yearly" checked="checked">Annual Subscription - $49.99 / yr<br>
+                    </td>
+                    <td>
+                        <h3>Would you also like?</h3>
+
+                        <input type="checkbox" name="addNewsletter" id="addNewsletter" value="newsletter">Dr. Dan's Email Newsletter (free)<br>
+                        <input type="checkbox" name="addSupport" id="addSupport" value="support">Premium Support ($5/mo)<br>
+                    </td>
+                    </tr>
+                </table>
+        
+                <div id="billing">
+                    <div class="line">
+                        <h3>Contact Information</h3>
+                    </div>
+                    <table id="mainTable"  style="width:400px">
+                        <tr>
+                        <td>
+                            Your Email:
+                        </td>
+                        <td>
+                            <input id="email" name="email" onblur="trackFormProgress(this);" style="font-family: verdana, helvetica, arial, sans-serif; width: 200px;" type="text">
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <h5>*Will be your login and used to email receipt</h5>
+                        </td>
+                        </tr>
+                    </table>
+
+                    <div class="line">
+                        <h3>Payment Information</h3>
+                    </div>
+                    <table id="mainTable" style="width:500px"> 
+                        <tr>
+                        <td>
+                            Name on Card:
+                        </td>
+                        <td>
+                            <input id="cardName" name="cardName" value="John Smith" onblur="trackFormProgress(this);" style="font-family: verdana, helvetica, arial, sans-serif; width: 200px;" type="text">
+                        </td>
+                        </tr>  
+                        <tr>
+                        <td>
+                            Credit Card Number:
+                        </td>
+                        <td>
+                             <input id="cardNumber" name="cardNumber" value="12341234123412341234" onblur="trackFormProgress(this);" style="font-family: verdana, helvetica, arial, sans-serif; width: 200px;" type="text">
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            Expiration:
+                        </td>
+                        <td>
+                            <input id="expiration" name="expiration" value="08/15" onblur="trackFormProgress(this);" style="font-family: verdana, helvetica, arial, sans-serif; width: 100px;" type="text">
+                        </td>
+                        <td>
+                            CVV3:
+                        </td>
+                        <td>
+                            <input id="cvv3" name="cvv3" value="123" onblur="trackFormProgress(this);" style="font-family: verdana, helvetica, arial, sans-serif; width: 100px;" type="text">
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            Zip Code:
+                        </td>
+                        <td>
+                            <input id="zipcode" name="zipcode" value="01234" onblur="trackFormProgress(this);" style="font-family: verdana, helvetica, arial, sans-serif; width: 100px;" type="text">
+                        </td>
+                        </tr>
+                    </table>
+            
+                    <p style="text-align: center">
+                        <input type="submit" value="Purchase">
+                    </p>
+                </div>
+
+            </form>
+        </div>
+
+        <script>
+            function trackFormProgress(formElement) {
+                if(formElement.value != '') {
+                    _gaq.push(['_trackPageview','/checkout/form/' + formElement.name]);
+                }
+            }
+        </script>
+
+        <script>
+            function trackTransaction() {
+                var orderId = getNewOrderID();
+
+                var runningTotal = 0;
+
+                if(document.getElementById("monthlySub").checked) {
+                    runningTotal += 9.99;
+                    _gaq.push(['_addItem', orderId, 'MO-SUB', 'Monthly Subscription', '', '9.99', '1']);
+                }
+                else {
+                    runningTotal += 49.99;
+                    _gaq.push(['_addItem', orderId, 'YR-SUB', 'Yearly Subscription', '', '49.99', '1']);
+                }
+
+                if(document.getElementById("addNewsletter").checked) {
+                    runningTotal += 0;
+                    _gaq.push(['_addItem', orderId, 'ADD-NEWS', 'Newsletter', '', '0', '1']);
+                }
+
+                if(document.getElementById("addSupport").checked) {
+                    runningTotal += 5;
+                    _gaq.push(['_addItem', orderId, 'ADD-SUPP', 'Premium Support', '', '5', '1']);
+                }
+
+                var tax = 0.08 * runningTotal;
+
+                _gaq.push(['_addTrans', orderId, '', runningTotal, tax, '0']);
+
+                _gaq.push(['_trackTrans'])
+
+
+                //for demo purpose we don't post anything, just redirect to thankyou page
+                window.setTimeout(
+                                    function() {
+                                        location.href = 'thankyou.html';
+                                    },
+                                    1000);
+                return false;
+            }
+
+            function getNewOrderID() {
+                var now = new Date();
+                return "1234-" + Math.floor((Math.random() * 10000) + 1) + "-" + now.getDay() + now.getMonth() + now.getYear() + "-" + now.getHours() + now.getMinutes() + now.getSeconds();
+            }
+        </script>
+    </body>
+</html>
